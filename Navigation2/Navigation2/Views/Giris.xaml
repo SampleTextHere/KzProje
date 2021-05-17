@@ -14,7 +14,7 @@
         <Grid RowDefinitions="*,*" Margin="5">
             <Grid RowDefinitions="*,*,1.2*,*,1.2*,*,1.2*">
                 <Label Text="GİRİŞ YAP" FontSize="Large" TextColor="Black"/>
-                <Label Grid.Row="1" Text="Kullanıcı Adı" FontSize="Small" TextColor="Black" VerticalOptions="End"/>
+                <Label Grid.Row="1" Text="BRUH.." FontSize="Small" TextColor="Black" VerticalOptions="End"/>
                 <Entry Grid.Row="2" Text="{Binding Username}" Placeholder="Kullanıcı adı" FontSize="Small" BackgroundColor="White"/>
                 <Label Grid.Row="3" Text="Parola" FontSize="Small" TextColor="Black" VerticalOptions="End"/>
                 <Entry Grid.Row="4" Text="{Binding Password}" IsPassword="True" Placeholder="Parola" FontSize="Small" BackgroundColor="White"/>
