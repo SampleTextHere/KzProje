@@ -7,8 +7,7 @@ using Xamarin.Forms;
 using Navigation2.Views;
 using Navigation2.Models;
 using Navigation2.Services;
-
-
+using Xamarin.Essentials;
 
 namespace Navigation2.ViewModels
 {
@@ -62,15 +61,7 @@ namespace Navigation2.ViewModels
 
 
         //Login işlemleri
-        public bool CheckLogin(Account account)
-        {
-            return AccountManager.CheckLoginInfo(account);
-        }
 
-        public void RegisterAccount(Account account)
-        {
-            AccountManager.AddAccount(account);
-        }
 
         public Account CurrentAccount()
         {
@@ -108,15 +99,15 @@ namespace Navigation2.ViewModels
         
         public void FacebookLink()
         {
-            Device.OpenUri(new Uri("https://www.facebook.com/kzkulaklikcom/"));
+            Launcher.OpenAsync(new Uri("https://www.facebook.com/kzkulaklikcom/"));
         }
         public void InstagramLink()
         {
-            Device.OpenUri(new Uri("https://www.instagram.com/kzkulaklik/"));
+            Launcher.OpenAsync(new Uri("https://www.instagram.com/kzkulaklik/"));
         }
         public void TwitterLink()
         {
-            Device.OpenUri(new Uri("https://twitter.com/kzkulaklik"));
+            Launcher.OpenAsync(new Uri("https://twitter.com/kzkulaklik"));
         }
 
 
