@@ -20,6 +20,7 @@ namespace Navigation2.ViewModels
         public Command FacebookCommand { get; }
         public Command InstagramCommand { get; }
         public Command TwitterCommand { get; }
+               
 
 
         private Product selectedProduct;
@@ -27,6 +28,13 @@ namespace Navigation2.ViewModels
         {
             get { return selectedProduct; }
             set { selectedProduct = value; }
+        }
+
+        private ObservableCollection<Product> products;
+        public ObservableCollection<Product> Products
+        {
+            get { return products; }
+            set { products = value; }
         }
 
         public BaseViewModel()
@@ -40,29 +48,14 @@ namespace Navigation2.ViewModels
             //SearchButtonCommand = new Command();   
         }
 
-        public ObservableCollection<Product> GetProducts()
-        {           
-            return DataHolder.Products;
-        }
+        
+
         public ObservableCollection<CartItem> GetCart()
         {
             return CartManager.Cart;
         }
 
-        public ObservableCollection<Product> GetProductsByCategory(string category)
-        {
-            return DataHolder.GetProductsByCategory(category);
-        }
-        public ObservableCollection<Product> GetProductsByRandom(int count)
-        {
-            return DataHolder.GetProductsByRandom(count);
-        }
-
-
-
         //Login işlemleri
-
-
         public Account CurrentAccount()
         {
             return AccountManager.CurrentAccount;
@@ -72,15 +65,11 @@ namespace Navigation2.ViewModels
             AccountManager.CurrentAccount = account;
         }
 
-
-
         //
         public void CartWipe()
         {
             CartManager.CleanCart();
-        }
-
-
+        }        
 
 
         //

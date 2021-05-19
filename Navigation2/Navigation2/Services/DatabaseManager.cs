@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Navigation2.Models;
+using System.Collections.ObjectModel;
 
 namespace Navigation2.Services
 {
@@ -21,6 +22,28 @@ namespace Navigation2.Services
             db = new SQLiteAsyncConnection(databasePath);
 
             await db.CreateTableAsync<Account>();
+            await db.CreateTableAsync<Product>();
+            await AddValues();
+
+        }
+
+        private static async Task AddValues()
+        {
+            await db.DeleteAllAsync<Product>();
+            if (await db.Table<Account>().CountAsync() == 0)
+            {
+                foreach (var item in AccountManager.Accounts)
+                {
+                    await AddAccount(item);
+                }
+            }
+            if (await db.Table<Product>().CountAsync() == 0)
+            {
+                foreach (var item in DataHolder.Products)
+                {
+                    await AddProduct(item);
+                }
+            }
         }
 
         public static async Task AddAccount(Account accountToInsert)
@@ -31,9 +54,7 @@ namespace Navigation2.Services
             foreach (Account account in accounts)
             {
                 if (account.Username == accountToInsert.Username && account.Password == accountToInsert.Password)
-                {
                     return;
-                }
             }
             await db.InsertAsync(accountToInsert);
         }
@@ -46,6 +67,44 @@ namespace Navigation2.Services
             if (accounts.Count == 0)
                 return null;
             return accounts;
+        }
+
+        public static async Task AddProduct(Product productToInsert)
+        {
+            await Init();
+
+            var products = await db.Table<Product>().ToListAsync();
+            foreach (Product product in products)
+            {
+                if (product.Name == productToInsert.Name)
+                    return;
+            }
+            await db.InsertAsync(productToInsert);
+        }
+
+        public static async Task<IEnumerable<Product>> GetProduct()
+        {
+            await Init();
+
+            var products = await db.Table<Product>().ToListAsync();
+            if (products.Count == 0)
+                return null;
+            return products;
+        }
+
+        public static async Task<IEnumerable<Product>> GetProductByCategory(string category)
+        {
+            await Init();
+
+            var products = await db.Table<Product>().Where(c => c.Category == category).ToArrayAsync();
+            return products;
+        }
+        public static async Task<IEnumerable<Product>> GetProductByName(string name)
+        {
+            await Init();
+
+            var products = await db.Table<Product>().Where(n => n.Name.Contains(name)).ToArrayAsync();
+            return products;
         }
 
     }

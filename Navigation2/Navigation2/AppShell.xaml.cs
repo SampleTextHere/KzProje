@@ -8,10 +8,10 @@ namespace Navigation2
     {
 
         public AppShell()
-        {            
+        {
             InitializeComponent();
             AccountPage.IsVisible = false;
-            Routing.RegisterRoute(nameof(Sepet), typeof(Sepet));
+            Routing.RegisterRoute(nameof(Sepet), typeof(Sepet));            
         }
         public void Login()
         {

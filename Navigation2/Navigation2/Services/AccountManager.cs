@@ -16,28 +16,15 @@ namespace Navigation2.Services
         {
             return CurrentAccount;
         }
-
-        static async void InsertAccounts()
-        {
-            if (await DatabaseManager.GetAccount() == null)
-            {
-                foreach (Account account in Accounts)
-                {
-                    await DatabaseManager.AddAccount(account);
-                }
-            }
-        }
-        
+   
         static AccountManager()
         {
             Accounts = new ObservableCollection<Account>();
-            Accounts.Add(new Account 
-            { 
+            Accounts.Add(new Account
+            {
                 Username = "Admin",
                 Password = "Password"
             });
-            InsertAccounts();
-
         }
     }
 }
