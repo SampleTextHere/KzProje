@@ -4,28 +4,21 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
 using Xamarin.Forms;
-using Navigation2.ViewModels;
+using System.Threading.Tasks;
 using Navigation2.Views;
 using Navigation2.Models;
-using System.Threading.Tasks;
+using Navigation2.Services;
+using System.Threading;
 
 namespace Navigation2.ViewModels
 {
     class AnasayfaViewModel : BaseViewModel
     {
-
-        
         public AnasayfaViewModel()
         {
-            Products = GetProducts();
+            Products = DataHolder.Products;
         }
 
-        private ObservableCollection<Product> products;
-        public ObservableCollection<Product> Products
-        {
-            get { return products; }
-            set { products = value; }
-        }
     }
    
 

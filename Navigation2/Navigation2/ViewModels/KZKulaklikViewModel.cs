@@ -7,6 +7,7 @@ using Xamarin.Forms;
 using Navigation2.ViewModels;
 using Navigation2.Views;
 using Navigation2.Models;
+using Navigation2.Services;
 
 namespace Navigation2.ViewModels
 {
@@ -14,14 +15,8 @@ namespace Navigation2.ViewModels
     {
         public KZKulaklikViewModel()
         {
-            Products = GetProductsByCategory("kulaklık");
-        }
-        private ObservableCollection<Product> products;
-
-        public ObservableCollection<Product> Products
-        {
-            get { return products; }
-            set { products = value; }
+            DataHolder.GetProductsByCategory("kulaklık");
+            Products = DataHolder.FilteredList;
         }
     }
 }

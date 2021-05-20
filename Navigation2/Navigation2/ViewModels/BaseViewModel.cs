@@ -7,8 +7,7 @@ using Xamarin.Forms;
 using Navigation2.Views;
 using Navigation2.Models;
 using Navigation2.Services;
-
-
+using Xamarin.Essentials;
 
 namespace Navigation2.ViewModels
 {
@@ -21,6 +20,7 @@ namespace Navigation2.ViewModels
         public Command FacebookCommand { get; }
         public Command InstagramCommand { get; }
         public Command TwitterCommand { get; }
+               
 
 
         private Product selectedProduct;
@@ -28,6 +28,13 @@ namespace Navigation2.ViewModels
         {
             get { return selectedProduct; }
             set { selectedProduct = value; }
+        }
+
+        private ObservableCollection<Product> products;
+        public ObservableCollection<Product> Products
+        {
+            get { return products; }
+            set { products = value; }
         }
 
         public BaseViewModel()
@@ -41,37 +48,14 @@ namespace Navigation2.ViewModels
             //SearchButtonCommand = new Command();   
         }
 
-        public ObservableCollection<Product> GetProducts()
-        {           
-            return DataHolder.Products;
-        }
+        
+
         public ObservableCollection<CartItem> GetCart()
         {
             return CartManager.Cart;
         }
 
-        public ObservableCollection<Product> GetProductsByCategory(string category)
-        {
-            return DataHolder.GetProductsByCategory(category);
-        }
-        public ObservableCollection<Product> GetProductsByRandom(int count)
-        {
-            return DataHolder.GetProductsByRandom(count);
-        }
-
-
-
         //Login işlemleri
-        public bool CheckLogin(Account account)
-        {
-            return AccountManager.CheckLoginInfo(account);
-        }
-
-        public void RegisterAccount(Account account)
-        {
-            AccountManager.AddAccount(account);
-        }
-
         public Account CurrentAccount()
         {
             return AccountManager.CurrentAccount;
@@ -81,15 +65,11 @@ namespace Navigation2.ViewModels
             AccountManager.CurrentAccount = account;
         }
 
-
-
         //
         public void CartWipe()
         {
             CartManager.CleanCart();
-        }
-
-
+        }        
 
 
         //
@@ -108,15 +88,15 @@ namespace Navigation2.ViewModels
         
         public void FacebookLink()
         {
-            Device.OpenUri(new Uri("https://www.facebook.com/kzkulaklikcom/"));
+            Launcher.OpenAsync(new Uri("https://www.facebook.com/kzkulaklikcom/"));
         }
         public void InstagramLink()
         {
-            Device.OpenUri(new Uri("https://www.instagram.com/kzkulaklik/"));
+            Launcher.OpenAsync(new Uri("https://www.instagram.com/kzkulaklik/"));
         }
         public void TwitterLink()
         {
-            Device.OpenUri(new Uri("https://twitter.com/kzkulaklik"));
+            Launcher.OpenAsync(new Uri("https://twitter.com/kzkulaklik"));
         }
 
 

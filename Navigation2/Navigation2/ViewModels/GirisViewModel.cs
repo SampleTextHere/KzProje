@@ -4,11 +4,10 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
 using Xamarin.Forms;
-using Navigation2.ViewModels;
+using System.Threading.Tasks;
 using Navigation2.Views;
 using Navigation2.Models;
-using System.Threading.Tasks;
-
+using Navigation2.Services;
 
 namespace Navigation2.ViewModels
 {
@@ -31,36 +30,25 @@ namespace Navigation2.ViewModels
 
         private async void Login()
         {
-            
-            Account account = new Account(Username, Password);
-            if (CheckLogin(account))
+            Account LoginAccount = new Account(Username, Password);
+            var AccountList = await DatabaseManager.GetAccount();
+            foreach (Account account in AccountList)
             {
-                SetCurrentAccount(account);
-                AppShell denemeShell = new AppShell();
-                denemeShell.Login();
-                App.Current.MainPage = denemeShell;
-                await Shell.Current.GoToAsync($"///{nameof(Anasayfa)}");
-            }
-            else
-            {
-                //login başarısız
-            }
-
+                if (account.Username == LoginAccount.Username && account.Password == LoginAccount.Password)
+                {
+                    SetCurrentAccount(LoginAccount);
+                    AppShell denemeShell = new AppShell();
+                    denemeShell.Login();
+                    App.Current.MainPage = denemeShell;
+                    await Shell.Current.GoToAsync($"///{nameof(Anasayfa)}");
+                }
+            }          
         }
 
-        private void Regiser()
+        private async void Register()
         {
-            Account account = new Account(RegisterUsername, RegisterPassword);
-            RegisterAccount(account);
-        }
-
-        private void Register()
-        {
-            var account = new Account(RegisterUsername, RegisterPassword);
-            if (!CheckLogin(account))
-            {
-                RegisterAccount(account);
-            }
+            Account RegisterAccount = new Account(RegisterUsername, RegisterPassword);
+            await DatabaseManager.AddAccount(RegisterAccount);
         }
     }
 }

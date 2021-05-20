@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using Navigation2.Services;
 
 namespace Navigation2.ViewModels
 {
@@ -10,14 +11,8 @@ namespace Navigation2.ViewModels
     {
         public KablolarViewModel()
         {
-            Products = GetProductsByCategory("kablo");
-        }
-        private ObservableCollection<Product> products;
-
-        public ObservableCollection<Product> Products
-        {
-            get { return products; }
-            set { products = value; }
+            DataHolder.GetProductsByCategory("kablo");
+            Products = DataHolder.FilteredList;
         }
     }
 }
