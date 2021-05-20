@@ -85,7 +85,7 @@
     
     
     <FlyoutItem Title="Anasayfa">
-        <ShellContent Route="Anasayfa" ContentTemplate="{DataTemplate local:AramaSayfasi}" /> <!--Anasayfa olacak-->
+        <ShellContent Route="Anasayfa" ContentTemplate="{DataTemplate local:Anasayfa}" />
     </FlyoutItem>
     <FlyoutItem Title="KZ Kulaklık">
         <ShellContent Route="KZKulaklik" ContentTemplate="{DataTemplate local:KZKulaklik}" />

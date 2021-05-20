@@ -18,16 +18,6 @@ namespace Navigation2.Views
         {
             InitializeComponent();
             BindingContext = new AramaSayfasiPageViewModel();
-        }
-        async void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var selectedProduct = ((CollectionView)sender).SelectedItem as Product;
-            if (selectedProduct == null)
-                return;
-
-            await Navigation.PushAsync(new UrunDetay(selectedProduct));
-
-            ((CollectionView)sender).SelectedItem = null;
-        }
+        }       
     }
 }

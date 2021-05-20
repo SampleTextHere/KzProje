@@ -10,7 +10,7 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="kzlogo.png" Command="{Binding KZButtonCommand}"/>
-        <ToolbarItem IconImageSource="search.png"/>
+        <ToolbarItem IconImageSource="search.png" Command="{Binding SearchButtonCommand}"/>
         <ToolbarItem IconImageSource="cart.png" Command="{Binding CartButtonCommand}"/>
     </ContentPage.ToolbarItems>
 

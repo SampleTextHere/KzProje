@@ -1,35 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Navigation2.Views.Kablolar"
-             xmlns:viemodels="clr-namespace:Navigation2.ViewModels">
+             x:Class="Navigation2.Views.AramaSonucu"
+             xmlns:viewmodels="clr-namespace:Navigation2.ViewModels">
 
     <ContentPage.BindingContext>
-        <viemodels:KablolarViewModel/>
+        <viewmodels:AramaSonucuViewModel/>
     </ContentPage.BindingContext>
-    
-    <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="kzlogo.png" Command="{Binding KZButtonCommand}"/>
-        <ToolbarItem IconImageSource="search.png" Command="{Binding SearchButtonCommand}"/>
-        <ToolbarItem IconImageSource="cart.png" Command="{Binding CartButtonCommand}"/>
-    </ContentPage.ToolbarItems>
 
-   
+
+
     <ContentPage.Content>
-        <StackLayout>
-            <Grid ColumnDefinitions="10*,1*,10*" BackgroundColor="#F1F1F1" HeightRequest="30">
-                <!--SOSYAL MEDYA BAGLANTI-->
-                <ImageButton Grid.Column="0" Source="facebookicon.png" BackgroundColor="Transparent" VerticalOptions="Center" HorizontalOptions="End"
-                             HeightRequest="20" WidthRequest="15" Command="{Binding FacebookCommand}" />
-                <ImageButton Grid.Column="1" Source="instagramicon.png" BackgroundColor="Transparent" VerticalOptions="Center" HorizontalOptions="Center"
-                             HeightRequest="20" WidthRequest="15" Command="{Binding InstagramCommand}"/>
-                <ImageButton Grid.Column="2" Source="twittericon.png" BackgroundColor="Transparent" VerticalOptions="Center" HorizontalOptions="Start"
-                             HeightRequest="20" WidthRequest="15" Command="{Binding TwitterCommand}"/>
-            </Grid>
-            <Label Text="Kablolar" HorizontalOptions="Center" FontSize="Large" TextColor="Black" FontAttributes="Bold"/>
-            <BoxView HeightRequest="2" Color="Gray"/>
-            <CollectionView Grid.Row="4" SelectionMode="Single" ItemsSource="{Binding Products}" 
-                            SelectedItem="{Binding SelectedProduct}" SelectionChanged="CollectionView_SelectionChanged">
+        <CollectionView Grid.Row="4" SelectionMode="Single" ItemsSource="{Binding Products}" 
+                            SelectedItem="{Binding SelectedProduct}" SelectionChanged="CollectionView_SelectionChanged" >
             <!--URUNLER-->
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="10" HorizontalItemSpacing="10"/>
@@ -53,6 +36,5 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

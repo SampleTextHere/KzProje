@@ -12,6 +12,8 @@ namespace Navigation2
             InitializeComponent();
             AccountPage.IsVisible = false;
             Routing.RegisterRoute(nameof(Sepet), typeof(Sepet));            
+            Routing.RegisterRoute(nameof(AramaSayfasi), typeof(AramaSayfasi));            
+            Routing.RegisterRoute(nameof(AramaSonucu), typeof(AramaSonucu));            
         }
         public void Login()
         {

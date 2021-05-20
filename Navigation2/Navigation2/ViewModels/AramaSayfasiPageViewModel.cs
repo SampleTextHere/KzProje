@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using System.Text;
-using System.Windows.Input;
 using Xamarin.Forms;
-using Navigation2.Services;
+using System.Threading.Tasks;
+using Navigation2.Views;
 using Navigation2.Models;
+using Navigation2.Services;
+using System.Threading;
 
 namespace Navigation2.ViewModels
 {
@@ -20,10 +22,10 @@ namespace Navigation2.ViewModels
             SearchCommand = new Command(SearchByName);
         }
 
-        private void SearchByName()
+        private async void SearchByName()
         {
-            DataHolder.GetProductsByName("PRO");
-            Products = DataHolder.FilteredList;
+            DataHolder.GetProductsByName(Keyword);
+            await Shell.Current.GoToAsync($"///{nameof(Anasayfa)}/{nameof(AramaSonucu)}");
         }
 
     }

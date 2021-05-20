@@ -30,6 +30,7 @@ namespace Navigation2.ViewModels
             set { selectedProduct = value; }
         }
 
+
         private ObservableCollection<Product> products;
         public ObservableCollection<Product> Products
         {
@@ -45,7 +46,7 @@ namespace Navigation2.ViewModels
             FacebookCommand = new Command(FacebookLink);
             InstagramCommand = new Command(InstagramLink);
             TwitterCommand = new Command(TwitterLink);
-            //SearchButtonCommand = new Command();   
+            SearchButtonCommand = new Command(GoToSearch);   
         }
 
         
@@ -81,6 +82,11 @@ namespace Navigation2.ViewModels
         {
             await Shell.Current.GoToAsync(nameof(Sepet));
         }
+        private async void GoToSearch(object obj)
+        {
+            await Shell.Current.GoToAsync(nameof(AramaSayfasi));
+        }
+
         private void AddToCart()
         {
             CartManager.AddToCart(selectedProduct);

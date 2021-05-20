@@ -96,14 +96,14 @@ namespace Navigation2.Services
         {
             await Init();
 
-            var products = await db.Table<Product>().Where(c => c.Category == category).ToArrayAsync();
+            var products = await db.Table<Product>().Where(c => c.Category.ToLower() == category.ToLower()).ToArrayAsync();
             return products;
         }
         public static async Task<IEnumerable<Product>> GetProductByName(string name)
         {
             await Init();
-
-            var products = await db.Table<Product>().Where(n => n.Name.Contains(name)).ToArrayAsync();
+            name = name.Trim();
+            var products = await db.Table<Product>().Where(n => n.Name.ToLower().Contains(name.ToLower())).ToArrayAsync();
             return products;
         }
 
