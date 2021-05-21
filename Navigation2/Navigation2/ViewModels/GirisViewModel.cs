@@ -31,7 +31,8 @@ namespace Navigation2.ViewModels
         private async void Login()
         {
             Account LoginAccount = new Account(Username, Password);
-            var AccountList = await DatabaseManager.GetAccount();
+            //var AccountList = await DatabaseManager.GetAccount();
+            var AccountList = await FirebaseManager.GetAccount();
             foreach (Account account in AccountList)
             {
                 if (account.Username == LoginAccount.Username && account.Password == LoginAccount.Password)
@@ -48,7 +49,11 @@ namespace Navigation2.ViewModels
         private async void Register()
         {
             Account RegisterAccount = new Account(RegisterUsername, RegisterPassword);
-            await DatabaseManager.AddAccount(RegisterAccount);
+            //await DatabaseManager.AddAccount(RegisterAccount);
+
+            await FirebaseManager.AddAccount(RegisterAccount);
         }
+
+
     }
 }

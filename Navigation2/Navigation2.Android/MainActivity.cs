@@ -5,6 +5,13 @@ using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
 
+using Android.Gms.Common;
+
+using Firebase.Messaging;
+using Firebase.Iid;
+using Android.Util;
+
+
 namespace Navigation2.Droid
 {
     [Activity(Label = "Navigation2", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
