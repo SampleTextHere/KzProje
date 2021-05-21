@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "146563949787",
+    "project_id": "kzproje-d9ad7",
+    "storage_bucket": "kzproje-d9ad7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:146563949787:android:be42a8a6fe7ff219b8d8fe",
+        "android_client_info": {
+          "package_name": "com.companyname.navigation2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "146563949787-8bk2q6b86tf2l6sco31k4vp82m3nj9su.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDideWNbd_okVa3YSh0fijtVCOacUCTg2Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "146563949787-8bk2q6b86tf2l6sco31k4vp82m3nj9su.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
