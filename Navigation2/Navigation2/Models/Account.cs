@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Text;
 using SQLite;
+using Plugin.CloudFirestore.Attributes;
 
 namespace Navigation2.Models
 {
     public class Account
     {
-        [PrimaryKey, AutoIncrement]
-        public int Id { get; set; }
+        public static string CollectionPath = "accounts";
+
+        [Id]
+        public string Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
 

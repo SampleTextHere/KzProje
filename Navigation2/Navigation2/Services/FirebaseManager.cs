@@ -10,6 +10,8 @@ using Firebase.Database.Query;
 using System.Collections.Generic;
 using System.Linq;
 
+using Plugin.CloudFirestore;
+
 namespace Navigation2.Services
 {
     public static class FirebaseManager
@@ -19,18 +21,21 @@ namespace Navigation2.Services
         static FirebaseClient fb;
         static async Task Init()
         {
-            if (fb != null)
-                return;
 
-            fb = new FirebaseClient("https://kzproje-d9ad7-default-rtdb.firebaseio.com/");
+            var document = await CrossCloudFirestore.Current
+                                                    .Instance
+                                                    .Collection(Account.CollectionPath)
+                                                    .GetAsync();
+            var account = document.ToObjects<Account>();
 
-            if (await GetAccount() == null)
+            if (account.Count() == 0 || account == null)
             {
                 foreach (var item in AccountManager.Accounts)
                 {
-                    await fb
-                    .Child("Accounts")
-                    .PostAsync(item);
+                    await CrossCloudFirestore.Current
+                                     .Instance
+                                     .Collection("accounts")
+                                     .AddAsync(item);
                 }
             }
         }
@@ -47,26 +52,25 @@ namespace Navigation2.Services
                     return;
                 }
             }
-            await fb
-                .Child("Accounts")
-                .PostAsync(account);
+            await CrossCloudFirestore.Current
+                                     .Instance
+                                     .Collection(Account.CollectionPath)
+                                     .AddAsync(account);
         }
 
         public static async Task<IEnumerable<Account>> GetAccount()
         {
             await Init();
 
-            var accounts = await fb.Child("Accounts").OnceAsync<Account>();
-            var accountl = accounts.Select(item => new Account
-            {
-                Id = item.Object.Id,
-                Username = item.Object.Username,
-                Password = item.Object.Password
-            }).ToList();
+            var document = await CrossCloudFirestore.Current
+                                                    .Instance
+                                                    .Collection(Account.CollectionPath)
+                                                    .GetAsync();
+            var account = document.ToObjects<Account>();
 
-            if (accountl.Count == 0)
+            if (!account.Any())
                 return null;
-            return accountl;
+            return account;
         }
 
 
