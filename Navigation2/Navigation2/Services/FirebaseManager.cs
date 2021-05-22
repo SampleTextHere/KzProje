@@ -5,6 +5,8 @@ using Xamarin.Essentials;
 using Navigation2.Models;
 using System.Collections.ObjectModel;
 
+//deneme
+//using Plugin.CloudFirestore;
 using Firebase.Database;
 using Firebase.Database.Query;
 using System.Collections.Generic;
@@ -21,6 +23,8 @@ namespace Navigation2.Services
         static FirebaseClient fb;
         static async Task Init()
         {
+            if (fb != null)
+                return;
 
             var document = await CrossCloudFirestore.Current
                                                     .Instance
@@ -43,7 +47,7 @@ namespace Navigation2.Services
         public static async Task AddAccount(Account account)
         {
             await Init();
-
+            
             var accounts = await GetAccount();
             foreach (Account item in accounts)
             {

@@ -49,7 +49,7 @@
                   Y2="0"
                   Stroke="gray"/>
                 </Grid>
-                <Button Grid.Row="3" Text="Satın Al" TextColor="White" BackgroundColor="#0789d9" VerticalOptions="Start"/>
+                <Button Grid.Row="3" Text="Satın Al"  Command="{Binding SatinAlmaCommand}" TextColor="White" BackgroundColor="#0789d9" VerticalOptions="Start"/>
                 <Button Grid.Row="4" Text="Sepeti Temizle" Command="{Binding CartCleanCommand}" TextColor="White" BackgroundColor="#0789d9" VerticalOptions="Start"/>
             </Grid>
     </ContentPage.Content>

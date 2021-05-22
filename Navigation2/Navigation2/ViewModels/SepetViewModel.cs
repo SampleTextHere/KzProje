@@ -27,6 +27,7 @@ namespace Navigation2.ViewModels
         }
 
         public Command CartCleanCommand { get; }
+        public Command SatinAlmaCommand { get; }
 
         public SepetViewModel()
         {
@@ -39,6 +40,7 @@ namespace Navigation2.ViewModels
                 TotalPrice += total;
             }
             CartCleanCommand = new Command(CartClean);
+            SatinAlmaCommand = new Command(SatinAlma);
         }
         
         private void CartClean(object obj)
@@ -47,7 +49,16 @@ namespace Navigation2.ViewModels
             CartWipe();
         }
 
-        
+        private async void SatinAlma()
+        {
+            if (CartItems == null || CartItems.Count == 0)
+                return;
+            CartClean(this);
+            await Shell.Current.GoToAsync($"///{nameof(Anasayfa)}/{nameof(SatinAlindi)}");
+
+        }
+
+
 
 
     }
