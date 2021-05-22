@@ -23,7 +23,7 @@
                   Y2="0"
                   Stroke="gray"/>
                 </Grid>
-                <CollectionView Grid.Row="1"  SelectionMode="None" ItemsSource="{Binding CartItems}">
+                <CollectionView Grid.Row="1"  SelectionMode="None" AutomationId="SepetCollectionView" ItemsSource="{Binding CartItems}">
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout Span="1" Orientation="Vertical" />
                     </CollectionView.ItemsLayout>
@@ -49,8 +49,8 @@
                   Y2="0"
                   Stroke="gray"/>
                 </Grid>
-                <Button Grid.Row="3" Text="Satın Al"  Command="{Binding SatinAlmaCommand}" TextColor="White" BackgroundColor="#0789d9" VerticalOptions="Start"/>
-                <Button Grid.Row="4" Text="Sepeti Temizle" Command="{Binding CartCleanCommand}" TextColor="White" BackgroundColor="#0789d9" VerticalOptions="Start"/>
+                <Button Grid.Row="3" Text="Satın Al"  Command="{Binding SatinAlmaCommand}" AutomationId="SatinAlButonu" TextColor="White" BackgroundColor="#0789d9" VerticalOptions="Start"/>
+                <Button Grid.Row="4" Text="Sepeti Temizle" Command="{Binding CartCleanCommand}" AutomationId="SepetTemizleButonu" TextColor="White" BackgroundColor="#0789d9" VerticalOptions="Start"/>
             </Grid>
     </ContentPage.Content>
 </ContentPage>

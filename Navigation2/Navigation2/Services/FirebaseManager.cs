@@ -5,8 +5,7 @@ using Xamarin.Essentials;
 using Navigation2.Models;
 using System.Collections.ObjectModel;
 
-//deneme
-//using Plugin.CloudFirestore;
+
 using Firebase.Database;
 using Firebase.Database.Query;
 using System.Collections.Generic;
@@ -18,19 +17,18 @@ namespace Navigation2.Services
 {
     public static class FirebaseManager
     {
-       
 
-        static FirebaseClient fb;
+        static IQuerySnapshot doc;
         static async Task Init()
         {
-            if (fb != null)
+            if (doc != null)
                 return;
 
-            var document = await CrossCloudFirestore.Current
+            doc = await CrossCloudFirestore.Current
                                                     .Instance
                                                     .Collection(Account.CollectionPath)
                                                     .GetAsync();
-            var account = document.ToObjects<Account>();
+            var account = doc.ToObjects<Account>();
 
             if (account.Count() == 0 || account == null)
             {
