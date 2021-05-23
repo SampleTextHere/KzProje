@@ -14,7 +14,7 @@ namespace Navigation2
             Routing.RegisterRoute(nameof(Sepet), typeof(Sepet));            
             Routing.RegisterRoute(nameof(AramaSayfasi), typeof(AramaSayfasi));            
             Routing.RegisterRoute(nameof(AramaSonucu), typeof(AramaSonucu));
-            Routing.RegisterRoute(nameof(SatinAlindi), typeof(SatinAlindi));
+            Routing.RegisterRoute(nameof(SatinAlindi), typeof(SatinAlindi));          
         }
         public void Login()
         {

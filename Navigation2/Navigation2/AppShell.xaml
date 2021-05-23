@@ -3,7 +3,7 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:Navigation2.Views"
        Title="Navigation2"
-       x:Class="Navigation2.AppShell">
+       x:Class="Navigation2.AppShell" AutomationId="AppShell">
 
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
@@ -81,25 +81,25 @@
                Grid.Row="1" Grid.Column="1" Aspect="AspectFit"/>
         </Grid>
     </Shell.FlyoutHeader>
-    
-    
-    
-    <FlyoutItem Title="Anasayfa">
+
+
+
+    <FlyoutItem Title="Anasayfa" AutomationId="AppShellAnasayfa">
         <ShellContent Route="Anasayfa" ContentTemplate="{DataTemplate local:Anasayfa}" />
     </FlyoutItem>
-    <FlyoutItem Title="KZ Kulaklık">
+    <FlyoutItem Title="KZ Kulaklık" AutomationId="AppShellKZKulaklik">
         <ShellContent Route="KZKulaklik" ContentTemplate="{DataTemplate local:KZKulaklik}" />
     </FlyoutItem>
-    <FlyoutItem Title="Kablolar" AutomationId="Kablolar">
-        <ShellContent Route="Kablolar" ContentTemplate="{DataTemplate local:Kablolar}" />
+    <FlyoutItem Title="Kablolar" AutomationId="AppShellKablolar">
+        <ShellContent AutomationId="AppShellKablolar" Route="Kablolar" ContentTemplate="{DataTemplate local:Kablolar}" />
     </FlyoutItem>
-    <FlyoutItem Title="Bize Ulaşın">
+    <FlyoutItem Title="Bize Ulaşın" AutomationId="AppShellBizeUlasin">
         <ShellContent Route="Iletisim" ContentTemplate="{DataTemplate local:Iletisim}" />
     </FlyoutItem>
-    <FlyoutItem Title="Giriş Yap" x:Name="LoginFlyout">
+    <FlyoutItem Title="Giriş Yap" x:Name="LoginFlyout" AutomationId="AppShellGiris">
         <ShellContent Route="Giris" x:Name="LoginPage" ContentTemplate="{DataTemplate local:Giris}" />
     </FlyoutItem>
-    <FlyoutItem Title="Hesap">
+    <FlyoutItem Title="Hesap" AutomationId="AppShellHesap">
         <ShellContent Route="AccountPage" x:Name="AccountPage" ContentTemplate="{DataTemplate local:AccountPage}" />
     </FlyoutItem>
 

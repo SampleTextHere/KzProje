@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Navigation2.Views.Anasayfa"
-             xmlns:viemodels="clr-namespace:Navigation2.ViewModels">
+             xmlns:viemodels="clr-namespace:Navigation2.ViewModels" AutomationId="AnasayfaView">
 
     <ContentPage.BindingContext>
         <viemodels:AnasayfaViewModel/>
@@ -19,19 +19,19 @@
             <Grid RowDefinitions="Auto, Auto, Auto, Auto,*" RowSpacing="0" Background="White">
                 <Grid Grid.Row="1" ColumnDefinitions="10*,1*,10*" BackgroundColor="#F1F1F1" HeightRequest="30">
                     <!--SOSYAL MEDYA BAGLANTI-->
-                    <ImageButton AutomationId="AnasayfaFacebookButon"
+                    <ImageButton AutomationId="FacebookButon"
                         Grid.Column="0" Source="facebookicon.png" BackgroundColor="Transparent" VerticalOptions="Center" HorizontalOptions="End"
                              HeightRequest="20" WidthRequest="15" Command="{Binding FacebookCommand}" />
-                    <ImageButton AutomationId="AnasayfaInstagramButon"
+                    <ImageButton AutomationId="InstagramButon"
                         Grid.Column="1" Source="instagramicon.png" BackgroundColor="Transparent" VerticalOptions="Center" HorizontalOptions="Center"
                              HeightRequest="20" WidthRequest="15" Command="{Binding InstagramCommand}"/>
-                    <ImageButton AutomationId="AnasayfaTwitterButon"
+                    <ImageButton AutomationId="TwitterButon"
                         Grid.Column="2" Source="twittericon.png" BackgroundColor="Transparent" VerticalOptions="Center" HorizontalOptions="Start"
                              HeightRequest="20" WidthRequest="15" Command="{Binding TwitterCommand}"/>
                 </Grid>
                 <Grid Grid.Row="2">
                     <!--BANNER-->
-                    <Image Source="kzbanner.jpg" HeightRequest="130" WidthRequest="100" Margin="10"/>
+                    <Image AutomationId="AnasayfaBanner" Source="kzbanner.jpg" HeightRequest="130" WidthRequest="100" Margin="10"/>
                 </Grid>
                 <!--KZ KULAKLIK MODELLERI LAYER-->
                 <Label Grid.Row="3" HorizontalOptions="Center" Text="KZ Kulaklık Modelleri" FontSize="Medium" FontAttributes="Bold" TextColor="Black"/>
@@ -42,11 +42,11 @@
                         <GridItemsLayout Orientation="Vertical" Span="2" VerticalItemSpacing="10" HorizontalItemSpacing="10"/>
                     </CollectionView.ItemsLayout>
                     <CollectionView.EmptyView >
-                        <Label Text="Ürün kalmamıştır" TextColor="Gray" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        <Label AutomationId="CollectionViewItem" Text="Ürün kalmamıştır" TextColor="Gray" HorizontalOptions="Center" VerticalOptions="Center"/>
                     </CollectionView.EmptyView>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Grid AutomationId="AnasayfaCollectionViewItem" 
+                            <Grid AutomationId="CollectionViewItem" 
                                 ColumnDefinitions="*,*" RowDefinitions="12*,*,*" HeightRequest="240" BackgroundColor="White" Padding="5">
 
                                 <Image Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" 

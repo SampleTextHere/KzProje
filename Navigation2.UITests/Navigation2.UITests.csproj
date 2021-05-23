@@ -40,5 +40,14 @@
     <Compile Include="Tests.cs" />
     <Compile Include="AppInitializer.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Navigation2\Navigation2\Navigation2.csproj">
+      <Project>{c97be22c-414d-4168-b6da-66712f58823c}</Project>
+      <Name>Navigation2</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

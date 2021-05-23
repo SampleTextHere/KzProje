@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:viewmodels="clr-namespace:Navigation2.ViewModels"
-             x:Class="Navigation2.Views.Iletisim">
+             x:Class="Navigation2.Views.Iletisim" AutomationId="IletisimView">
 
     <ContentPage.BindingContext>
         <viewmodels:IletisimViewModel/>
@@ -19,11 +19,14 @@
             <StackLayout Padding="10,0,10,0" >
                 <Grid ColumnDefinitions="10*,1*,10*" BackgroundColor="#F1F1F1" HeightRequest="30">
                     <!--SOSYAL MEDYA BAGLANTI-->
-                    <ImageButton Grid.Column="0" Source="facebookicon.png" BackgroundColor="Transparent" VerticalOptions="Center" HorizontalOptions="End"
+                    <ImageButton AutomationId="FacebookButon"
+                        Grid.Column="0" Source="facebookicon.png" BackgroundColor="Transparent" VerticalOptions="Center" HorizontalOptions="End"
                              HeightRequest="20" WidthRequest="15" Command="{Binding FacebookCommand}" />
-                    <ImageButton Grid.Column="1" Source="instagramicon.png" BackgroundColor="Transparent" VerticalOptions="Center" HorizontalOptions="Center"
+                    <ImageButton AutomationId="InstagramButon"
+                        Grid.Column="1" Source="instagramicon.png" BackgroundColor="Transparent" VerticalOptions="Center" HorizontalOptions="Center"
                              HeightRequest="20" WidthRequest="15" Command="{Binding InstagramCommand}"/>
-                    <ImageButton Grid.Column="2" Source="twittericon.png" BackgroundColor="Transparent" VerticalOptions="Center" HorizontalOptions="Start"
+                    <ImageButton AutomationId="TwitterButon"
+                        Grid.Column="2" Source="twittericon.png" BackgroundColor="Transparent" VerticalOptions="Center" HorizontalOptions="Start"
                              HeightRequest="20" WidthRequest="15" Command="{Binding TwitterCommand}"/>
                 </Grid>
                 <Label Text="Bize Ulaşın" TextColor="Black" FontSize="Title" FontAttributes="Bold"/>

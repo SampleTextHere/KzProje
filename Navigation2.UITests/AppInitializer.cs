@@ -11,6 +11,7 @@ namespace Navigation2.UITests
             if (platform == Platform.Android)
             {
                 return ConfigureApp.Android.InstalledApp("com.companyname.navigation2").StartApp();
+               
             }
 
             return ConfigureApp.iOS.InstalledApp("com.companyname.navigation2").StartApp();

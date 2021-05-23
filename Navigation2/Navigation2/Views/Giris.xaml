@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Navigation2.Views.Giris"
-             xmlns:viewmodels="clr-namespace:Navigation2.ViewModels">
+             xmlns:viewmodels="clr-namespace:Navigation2.ViewModels" AutomationId="GirisView">
 
     <ContentPage.BindingContext>
         <viewmodels:GirisViewModel/>
@@ -15,14 +15,14 @@
             <Grid RowDefinitions="*,*,1.2*,*,1.2*,*,1.2*">
                 <Label Text="GİRİŞ YAP" FontSize="Large" TextColor="Black"/>
                 <Label Grid.Row="1" Text="Kullanıcı Adı" FontSize="Small" TextColor="Black" VerticalOptions="End"/>
-                <Entry Grid.Row="2" Text="{Binding Username}" Placeholder="Kullanıcı adı" FontSize="Small" BackgroundColor="White"/>
+                <Entry Grid.Row="2" AutomationId="LoginUsername" Text="{Binding Username}" Placeholder="Kullanıcı adı" FontSize="Small" BackgroundColor="White"/>
                 <Label Grid.Row="3" Text="Parola" FontSize="Small" TextColor="Black" VerticalOptions="End"/>
-                <Entry Grid.Row="4" Text="{Binding Password}" IsPassword="True" Placeholder="Parola" FontSize="Small" BackgroundColor="White"/>
+                <Entry Grid.Row="4" AutomationId="LoginPassword" Text="{Binding Password}" IsPassword="True" Placeholder="Parola" FontSize="Small" BackgroundColor="White"/>
                 <Grid Grid.Row="5" ColumnDefinitions="0.5*,4*">
                     <CheckBox Grid.Column="0" />
                     <Label Grid.Column="1" Text="Beni Hatırla" FontSize="Small" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start" />
                 </Grid>
-                <Button Grid.Row="6" Command="{Binding LoginCommand}" x:Name="buton" Clicked="buton_Clicked" TextColor="White" BackgroundColor="#0b4374" Text="Giriş Yap" HorizontalOptions="Start"/>
+                <Button Grid.Row="6" AutomationId="LoginButon" Command="{Binding LoginCommand}" x:Name="buton" Clicked="buton_Clicked" TextColor="White" BackgroundColor="#0b4374" Text="Giriş Yap" HorizontalOptions="Start"/>
             </Grid>
             <Grid Grid.Row="1" RowDefinitions="*,*,1.2*,*,1.2*,1.2*">
                 <Label Text="ÜYE OL" FontSize="Large" TextColor="Black"/>
