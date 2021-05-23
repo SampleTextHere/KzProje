@@ -90,7 +90,7 @@
     <FlyoutItem Title="KZ Kulaklık">
         <ShellContent Route="KZKulaklik" ContentTemplate="{DataTemplate local:KZKulaklik}" />
     </FlyoutItem>
-    <FlyoutItem Title="Kablolar">
+    <FlyoutItem Title="Kablolar" AutomationId="Kablolar">
         <ShellContent Route="Kablolar" ContentTemplate="{DataTemplate local:Kablolar}" />
     </FlyoutItem>
     <FlyoutItem Title="Bize Ulaşın">

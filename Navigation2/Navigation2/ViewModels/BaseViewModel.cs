@@ -11,7 +11,7 @@ using Xamarin.Essentials;
 
 namespace Navigation2.ViewModels
 {
-    class BaseViewModel : BindableObject
+    public class BaseViewModel : BindableObject
     {
         public Command KZButtonCommand { get; }
         public Command CartButtonCommand { get; }

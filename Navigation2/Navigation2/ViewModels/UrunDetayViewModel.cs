@@ -8,7 +8,7 @@ using Xamarin.Forms;
 
 namespace Navigation2.ViewModels
 {
-    class UrunDetayViewModel : BaseViewModel
+    public class UrunDetayViewModel : BaseViewModel
     {
         
         public UrunDetayViewModel(Product selectedProduct)

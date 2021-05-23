@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Navigation2", "Navigation2\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Navigation2.UITests", "Navigation2.UITests\Navigation2.UITests.csproj", "{30439DB7-E113-49CE-B929-AC9F22D59D29}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Navigation2.UnitTests", "Navigation2.UnitTests\Navigation2.UnitTests.csproj", "{B42E6C30-9415-4458-B228-743F3C4C546B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,18 @@ Global
 		{30439DB7-E113-49CE-B929-AC9F22D59D29}.Release|iPhone.Build.0 = Release|Any CPU
 		{30439DB7-E113-49CE-B929-AC9F22D59D29}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{30439DB7-E113-49CE-B929-AC9F22D59D29}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{B42E6C30-9415-4458-B228-743F3C4C546B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B42E6C30-9415-4458-B228-743F3C4C546B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B42E6C30-9415-4458-B228-743F3C4C546B}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{B42E6C30-9415-4458-B228-743F3C4C546B}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{B42E6C30-9415-4458-B228-743F3C4C546B}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{B42E6C30-9415-4458-B228-743F3C4C546B}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{B42E6C30-9415-4458-B228-743F3C4C546B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B42E6C30-9415-4458-B228-743F3C4C546B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B42E6C30-9415-4458-B228-743F3C4C546B}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{B42E6C30-9415-4458-B228-743F3C4C546B}.Release|iPhone.Build.0 = Release|Any CPU
+		{B42E6C30-9415-4458-B228-743F3C4C546B}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{B42E6C30-9415-4458-B228-743F3C4C546B}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

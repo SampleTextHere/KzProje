@@ -12,7 +12,7 @@ using System.Threading;
 
 namespace Navigation2.ViewModels
 {
-    class AnasayfaViewModel : BaseViewModel
+    public class AnasayfaViewModel : BaseViewModel
     {
         public AnasayfaViewModel()
         {

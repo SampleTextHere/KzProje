@@ -19,6 +19,8 @@ namespace Navigation2.UITests
         static readonly Func<AppQuery, AppQuery> AnasayfaFacebookButon = c => c.Marked("AnasayfaFacebookButon");
         static readonly Func<AppQuery, AppQuery> AnasayfaCollectionViewItem = c =>
             c.Marked("AnasayfaCollectionViewItem");
+        static readonly Func<AppQuery, AppQuery> Kablolar = c => c.Marked("Kablolar");
+
 
         public Tests(Platform platform)
         {
@@ -34,9 +36,11 @@ namespace Navigation2.UITests
         [Test]
         public void AppLaunches()
         {
+#if DEBUG
             app.Repl();
+#endif
             AppResult[] result = app.Query(AnasayfaFacebookButon);
-            Assert.IsTrue(result.Any(), "Facebook butonu gözükmüyor");
+            Assert.IsTrue(result.Any(), "Facebook butonu gözükmüyor");      
         }
     }
 }
