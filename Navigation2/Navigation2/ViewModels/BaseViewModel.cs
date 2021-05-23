@@ -87,7 +87,7 @@ namespace Navigation2.ViewModels
             await Shell.Current.GoToAsync(nameof(AramaSayfasi));
         }
 
-        private void AddToCart()
+        public void AddToCart()
         {
             CartManager.AddToCart(selectedProduct);
         }

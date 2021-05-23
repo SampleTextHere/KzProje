@@ -11,7 +11,7 @@ using Navigation2.Services;
 
 namespace Navigation2.ViewModels
 {
-    class GirisViewModel : BaseViewModel
+    public class GirisViewModel : BaseViewModel
     {
 
         public string Username { get; set; }
@@ -28,7 +28,7 @@ namespace Navigation2.ViewModels
             RegisterCommand = new Command(Register);           
         }
 
-        private async void Login()
+        public async void Login()
         {
             Account LoginAccount = new Account(Username, Password);
             //var AccountList = await DatabaseManager.GetAccount();

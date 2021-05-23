@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Navigation2.ViewModels
 {
-    class SepetViewModel : BaseViewModel
+    public class SepetViewModel : BaseViewModel
     {
         public ObservableCollection<CartItem> CartItems { get; set; }
         private float totalPrice;
